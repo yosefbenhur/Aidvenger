@@ -1,0 +1,52 @@
+@font-face{
+  font-family: 'League Spartan';
+  src: local('League Spartan'), local('LeagueSpartan');
+  font-display: swap;
+}
+@font-face{
+  font-family: 'Inter';
+  src: local('Inter');
+  font-display: swap;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--clean-white);
+  background: radial-gradient(1200px 600px at 70% -10%, rgba(255,255,255,0.05), transparent 60%),
+              linear-gradient(160deg, var(--deep-1), var(--deep-2));
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height:1.6;
+}
+a{color:var(--clean-white); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:var(--maxw); margin:0 auto; padding:0 var(--space-4)}
+.btn{display:inline-block; padding:14px 20px; border-radius:999px; font-weight:700; letter-spacing:.2px}
+.btn-primary{background:var(--hero-yellow); color:var(--jet-black)}
+.btn-secondary{border:2px solid var(--clean-white); color:var(--clean-white)}
+.badge{display:inline-block; padding:4px 8px; border-radius:999px; font-size:.75rem; background:#ffffff22}
+.card{background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius-2); box-shadow:var(--shadow-1)}
+.grid{display:grid; gap:var(--space-4)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:900px){ .grid-3{grid-template-columns:1fr 1fr} }
+@media (max-width:640px){ .grid-3, .grid-2{grid-template-columns:1fr} }
+
+header.site{position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px); background:linear-gradient(160deg, #0e1a3388, #142b5e88); border-bottom:1px solid #ffffff14; z-index:10}
+header .brand{display:flex; gap:12px; align-items:center}
+header nav a{margin-left:16px; font-weight:600}
+footer{padding:40px 0; border-top:1px solid #ffffff14; background:#0B0F1A}
+h1,h2,h3{font-family:'League Spartan', Inter, sans-serif; letter-spacing:-0.02em; margin:0 0 12px}
+h1{font-size:clamp(2rem, 5vw, 3.5rem)}
+h2{font-size:clamp(1.4rem, 3.5vw, 2.2rem)}
+.hero{padding:96px 0 48px; position:relative; overflow:hidden}
+.hero h1 span{color:var(--hero-yellow)}
+.sub{opacity:.9; max-width:720px}
+.cta-row{display:flex; gap:12px; margin-top:20px; flex-wrap:wrap}
+.section{padding:72px 0}
+.progress{height:10px; background:#ffffff22; border-radius:999px; overflow:hidden}
+.progress > span{display:block; height:100%; background: repeating-linear-gradient(45deg, var(--hero-yellow), var(--hero-yellow) 10px, #e9b700 10px, #e9b700 20px); transform-origin:left; transition:transform .6s ease}
+img{max-width:100%; height:auto; border-radius:10px}
+.figure{position:relative; overflow:hidden; border-radius:var(--radius-2)}
+.label{font-size:.8rem; opacity:.9}
+.visually-hidden{position:absolute; clip:rect(1px,1px,1px,1px); padding:0; border:0; height:1px; width:1px; overflow:hidden; white-space:nowrap}

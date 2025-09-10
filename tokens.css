@@ -1,0 +1,17 @@
+:root{
+  --deep-1:#0E1A33;
+  --deep-2:#142B5E;
+  --hero-yellow:#FFC107;
+  --victory-red:#FF3B30;
+  --clean-white:#F5F7FB;
+  --jet-black:#0B0F1A;
+
+  --radius-2:12px;
+  --radius-3:18px;
+  --shadow-1:0 6px 24px rgba(0,0,0,0.25);
+  --space-1:8px; --space-2:12px; --space-3:16px; --space-4:24px; --space-5:32px; --space-6:48px;
+  --maxw:1200px;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+}

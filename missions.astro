@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MissionCard from "../components/MissionCard.jsx";
+import missions from "../data/missions.json";
+import sponsors from "../data/sponsors.json";
+
+const cards = missions.map(m => ({
+  ...m,
+  progress: Math.round((m.funded / Math.max(1,m.fundingGoal))*100),
+  sponsorLogo: (sponsors.find(s => s.id === m.sponsorId) || {}).logo,
+  beforeAfterImgs: m.gallery,
+  tags: [m.type]
+}));
+---
+<BaseLayout title="Missions — Aidvenger" description="Explore Incoming, In‑Progress, and Completed missions.">
+  <section class="section">
+    <div class="container">
+      <h1>Missions</h1>
+      <p class="sub">Filter by status and type (demo data).</p>
+      <div class="grid grid-3" style="margin-top:16px">
+        {cards.map(m => <a href={`/missions/${m.id}`}><MissionCard client:load {...m} /></a>)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

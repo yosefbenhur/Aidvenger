@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import data from "../data/pricing.json";
+---
+<BaseLayout title="Pricing — Aidvenger" description="Clear packages, add‑ons, and Mission Credits.">
+  <section class="section">
+    <div class="container">
+      <h1>Pricing</h1>
+      <div class="grid grid-3" style="margin-top:16px">
+        {data.packages.map(p => (
+          <div class="card" style={`padding:16px; ${p.recommended ? 'outline:3px solid var(--hero-yellow)' : ''}`}>
+            <h3>{p.name}</h3>
+            <p style="font-size:2rem; margin:.25rem 0;"><strong>${p.price}</strong></p>
+            <ul>{p.features.map(f => <li>{f}</li>)}</ul>
+            <p><a class="btn btn-primary" href="/book">Choose</a></p>
+          </div>
+        ))}
+      </div>
+
+      <h2 style="margin-top:32px">Add‑ons</h2>
+      <div class="grid grid-3" style="margin-top:16px">
+        {data.addons.map(a => (
+          <div class="card" style="padding:16px">
+            <h3>{a.name}</h3>
+            <p><strong>${a.price}</strong></p>
+          </div>
+        ))}
+      </div>
+
+      <div class="card" style="padding:16px; margin-top:24px">
+        <h2>Mission Credits</h2>
+        <p>Gift community impact. Add a Mission Credit to your booking and we’ll apply it to an upcoming cleanup.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

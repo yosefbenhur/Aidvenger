@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import faqs from "../data/faqs.json";
+---
+<BaseLayout title="FAQ — Aidvenger" description="Answers to common questions.">
+  <section class="section">
+    <div class="container">
+      <h1>FAQ</h1>
+      {faqs.map((qa) => (
+        <details class="card" style="padding:16px; margin:8px 0">
+          <summary><strong>{qa.question}</strong></summary>
+          <p>{qa.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Ace Hardware Midtown",
+    "logo": "/images/icon-sponsor-crest.svg",
+    "url": "https://example.com",
+    "tier": "$500"
+  },
+  {
+    "id": 2,
+    "name": "Joe's Diner",
+    "logo": "/images/icon-badge.svg",
+    "url": "https://example.com",
+    "tier": "$250"
+  },
+  {
+    "id": 3,
+    "name": "City Credit Union",
+    "logo": "/images/icon-shield.svg",
+    "url": "https://example.com",
+    "tier": "$1000"
+  },
+  {
+    "id": 4,
+    "name": "GreenTech Supplies",
+    "logo": "/images/icon-star.svg",
+    "url": "https://example.com",
+    "tier": "$500"
+  },
+  {
+    "id": 5,
+    "name": "Metro Bikes",
+    "logo": "/images/icon-users.svg",
+    "url": "https://example.com",
+    "tier": "$250"
+  },
+  {
+    "id": 6,
+    "name": "River Cafe",
+    "logo": "/images/icon-check.svg",
+    "url": "https://example.com",
+    "tier": "$1000"
+  }
+]

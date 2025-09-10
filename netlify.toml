@@ -1,0 +1,28 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  directory = "src/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-XSS-Protection = "0"
+    # allow plausible + calendly
+    Content-Security-Policy = "default-src 'self'; frame-src 'self' https://calendly.com https://*.calendly.com; script-src 'self' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://plausible.io; font-src 'self';"
+
+[[headers]]
+  for = "/*.{js,css,svg,png,jpg,jpeg,webp,avif,woff2}"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

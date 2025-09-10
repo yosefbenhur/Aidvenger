@@ -1,0 +1,100 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SparkleLayer from "../components/SparkleLayer.astro";
+import ReviewBadge from "../components/ReviewBadge.astro";
+import MissionCard from "../components/MissionCard.jsx";
+
+import missions from "../data/missions.json";
+import sponsors from "../data/sponsors.json";
+
+const featured = missions.slice(0,3).map(m => ({
+  ...m,
+  progress: Math.round((m.funded / Math.max(1,m.fundingGoal))*100),
+  sponsorLogo: (sponsors.find(s => s.id === m.sponsorId) || {}).logo,
+  beforeAfterImgs: m.gallery
+}));
+---
+<BaseLayout title="Every Mess Needs a Hero. — Aidvenger" description="On-call, cinematic-clean results—backed by sponsors who believe in cleaner communities.">
+  <section class="hero">
+    <SparkleLayer />
+    <div class="container">
+      <h1><span>Every Mess</span> Needs a Hero.</h1>
+      <p class="sub">On-call, cinematic-clean results—backed by sponsors who believe in cleaner communities.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/book">Deploy a Hero Team</a>
+        <a class="btn btn-secondary" href="/sponsor">Sponsor a Mission</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>How it works</h2>
+      <div class="grid grid-3" style="margin-top:16px">
+        <div class="card" style="padding:16px">
+          <img src="/images/icon-hero-call.svg" alt="" width="32" height="32"/>
+          <h3>Call for Help</h3>
+          <p>Tell us what needs rescuing and where. We’ll dispatch a hero team.</p>
+        </div>
+        <div class="card" style="padding:16px">
+          <img src="/images/icon-clock.svg" alt="" width="32" height="32"/>
+          <h3>Rapid Response</h3>
+          <p>Verified pros arrive fast with elite tools and a rescue plan.</p>
+        </div>
+        <div class="card" style="padding:16px">
+          <img src="/images/icon-camera.svg" alt="" width="32" height="32"/>
+          <h3>Victory Proof</h3>
+          <p>Cinematic before/after and a spotless scene—mission accomplished.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Live Mission Board</h2>
+      <div class="grid grid-3" style="margin-top:16px">
+        {featured.map(m => <MissionCard client:load {...m} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Sponsor Spotlight</h2>
+      <div class="grid grid-3" style="align-items:center; margin-top:16px">
+        {sponsors.slice(0,6).map(s => (
+          <div class="card" style="padding:16px; display:flex; gap:12px; align-items:center">
+            <img src={s.logo} alt="" width="28" height="28"/><strong>{s.name}</strong>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:16px"><em>“Shine as the brand behind the rescue. Get a Victory Emblem certificate and public spotlight.”</em></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Proof</h2>
+      <div class="grid grid-2" style="margin-top:16px">
+        <div class="card" style="padding:16px">
+          <h3>Cinematic Before/After</h3>
+          <p>See the transformation. Real missions, real results.</p>
+          <img src="/images/hero-6.jpg" alt="Before/after collage placeholder" loading="lazy"/>
+        </div>
+        <div class="card" style="padding:16px">
+          <h3>Reviews & Stats</h3>
+          <p><ReviewBadge source="Google" score="5.0" /> <span class="badge">Avg response: 2h</span> <span class="badge">NPS 91</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom:96px">
+    <div class="container" style="text-align:center">
+      <h2>Deploy a Hero Team Today</h2>
+      <p class="sub">Rapid Response • Verified Pros • Cinematic Before/After • Community‑Powered</p>
+      <p><a class="btn btn-primary" href="/book">Deploy a Hero Team</a></p>
+    </div>
+  </section>
+</BaseLayout>

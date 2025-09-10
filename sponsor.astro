@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SponsorTier from "../components/SponsorTier.astro";
+
+const tiers = [
+  { name: "Sidekick", amount: 250, features: ["Logo on mission page","Public thank‑you"], link: import.meta.env.STRIPE_TIER_250_LINK || "#" },
+  { name: "Hero", amount: 500, features: ["Logo + social shoutout","Featured in League Log"], link: import.meta.env.STRIPE_TIER_500_LINK || "#" },
+  { name: "Superhero", amount: 1000, features: ["Top placement + certificate","Custom spotlight"], link: import.meta.env.STRIPE_TIER_1000_LINK || "#" }
+];
+---
+<BaseLayout title="Sponsor a Mission — Aidvenger" description="Be the brand behind the rescue.">
+  <section class="section">
+    <div class="container">
+      <h1>Sponsor a Mission</h1>
+      <p class="sub">Shine as the brand behind the rescue. Get a Victory Emblem certificate and public spotlight.</p>
+      <div class="grid grid-3" style="margin-top:16px">
+        {tiers.map(t => <SponsorTier {...t} />)}
+      </div>
+
+      <div class="card" style="padding:16px; margin-top:24px">
+        <h2>Tell us about your pledge</h2>
+        <form name="sponsor" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="sponsor"/>
+          <p class="visually-hidden"><label>Don’t fill this out: <input name="bot-field"/></label></p>
+          <p><label>Your Name<br/><input name="name" required style="width:100%; padding:10px; border-radius:8px"/></label></p>
+          <p><label>Business Name<br/><input name="business" style="width:100%; padding:10px; border-radius:8px"/></label></p>
+          <p><label>Email<br/><input type="email" name="email" required style="width:100%; padding:10px; border-radius:8px"/></label></p>
+          <p><label>Mission (optional)<br/><input name="mission" style="width:100%; padding:10px; border-radius:8px"/></label></p>
+          <p><button class="btn btn-primary" type="submit">Submit Pledge</button></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

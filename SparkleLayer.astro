@@ -1,0 +1,21 @@
+---
+---
+<style>
+.sparkles{position:absolute; inset:0; pointer-events:none; opacity:.5}
+.sparkles i{position:absolute; width:2px; height:2px; background:var(--clean-white); border-radius:50%; opacity:.9}
+@media (prefers-reduced-motion: reduce){
+  .sparkles{display:none}
+}
+</style>
+<div class="sparkles" aria-hidden="true">
+  {Array.from({length:60}).map((_,i)=>{
+    const left = Math.random()*100;
+    const top = Math.random()*100;
+    const dur = 3 + Math.random()*5;
+    const delay = Math.random()*3;
+    return <i style={`left:${left}%; top:${top}%; animation: twinkle ${dur}s ease-in-out ${delay}s infinite alternate;`}></i>
+  })}
+</div>
+<style>
+@keyframes twinkle{from{transform:scale(.6); opacity:.3} to{transform:scale(1.4); opacity:1}}
+</style>

@@ -1,0 +1,11 @@
+---
+const { name, amount, features = [], link } = Astro.props;
+---
+<div class="card" style="padding:16px">
+  <h3>{name}</h3>
+  <p style="font-size:2rem; margin:.25rem 0;"><strong>${amount}</strong></p>
+  <ul>
+    {features.map((f) => <li>{f}</li>)}
+  </ul>
+  <p><a class="btn btn-primary" href={link}>Select</a></p>
+</div>

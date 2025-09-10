@@ -1,0 +1,92 @@
+[
+  {
+    "id": "central-park-playground",
+    "title": "Central Park Playground Cleanup",
+    "description": "After a festival, the playground was left in disarray. Our heroes restored it to shining form.",
+    "status": "Completed",
+    "type": "Public Space",
+    "location": "Manhattan, NY",
+    "fundingGoal": 500,
+    "funded": 500,
+    "sponsorId": 2,
+    "gallery": [
+      "/images/hero-1.jpg",
+      "/images/hero-2.jpg"
+    ]
+  },
+  {
+    "id": "5th-st-warehouse-graffiti",
+    "title": "5th St Warehouse Graffiti Removal",
+    "description": "A vandalized facade needed a swift rescue. Solvents, scrubs, and heroic elbow grease.",
+    "status": "In Progress",
+    "type": "Commercial",
+    "location": "Brooklyn, NY",
+    "fundingGoal": 1000,
+    "funded": 650,
+    "sponsorId": 4,
+    "gallery": [
+      "/images/hero-3.jpg",
+      "/images/hero-4.jpg"
+    ]
+  },
+  {
+    "id": "riverside-park-litter",
+    "title": "Riverside Park Litter Sweep",
+    "description": "Windy weekend left debris across trails. Community-powered cleanup underway.",
+    "status": "Incoming",
+    "type": "Public Space",
+    "location": "Jersey City, NJ",
+    "fundingGoal": 750,
+    "funded": 150,
+    "sponsorId": null,
+    "gallery": [
+      "/images/hero-5.jpg",
+      "/images/hero-6.jpg"
+    ]
+  },
+  {
+    "id": "old-town-alley-deepclean",
+    "title": "Old Town Alley Deep Clean",
+    "description": "A tight alleyway needed degreasing and pressure washing to make it safe again.",
+    "status": "Completed",
+    "type": "Municipal",
+    "location": "Queens, NY",
+    "fundingGoal": 900,
+    "funded": 900,
+    "sponsorId": 1,
+    "gallery": [
+      "/images/hero-7.jpg",
+      "/images/hero-8.jpg"
+    ]
+  },
+  {
+    "id": "community-center-reopen",
+    "title": "Community Center Reopen Prep",
+    "description": "Top-to-bottom clean before reopening day. Floors, glass, kitchens\u2014cinematic finish.",
+    "status": "In Progress",
+    "type": "Community",
+    "location": "Bronx, NY",
+    "fundingGoal": 1200,
+    "funded": 400,
+    "sponsorId": null,
+    "gallery": [
+      "/images/hero-2.jpg",
+      "/images/hero-3.jpg"
+    ]
+  },
+  {
+    "id": "after-parade-streets",
+    "title": "After-Parade Street Refresh",
+    "description": "Confetti and cups everywhere\u2014our squad restores order faster than a speeding bullet.",
+    "status": "Incoming",
+    "type": "Public Event",
+    "location": "Atlanta, GA",
+    "fundingGoal": 600,
+    "funded": 0,
+    "sponsorId": null,
+    "gallery": [
+      "/images/hero-4.jpg",
+      "/images/hero-5.jpg"
+    ]
+  }
+]

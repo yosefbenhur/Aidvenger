@@ -1,0 +1,51 @@
+{
+  "packages": [
+    {
+      "name": "Apartment Rescue",
+      "price": 199,
+      "features": [
+        "Studio/1\u2011bed",
+        "2 hours",
+        "1 Hero Cleaner",
+        "Supplies included"
+      ],
+      "recommended": false
+    },
+    {
+      "name": "Home Hero",
+      "price": 349,
+      "features": [
+        "2\u20133 bed",
+        "4 hours",
+        "2 Hero Cleaners",
+        "Cinematic Before/After"
+      ],
+      "recommended": true
+    },
+    {
+      "name": "Epic Estate",
+      "price": 599,
+      "features": [
+        "4+ bed",
+        "6 hours",
+        "3 Hero Cleaners",
+        "Deep clean + addons"
+      ],
+      "recommended": false
+    }
+  ],
+  "addons": [
+    {
+      "name": "Carpet Deep Clean",
+      "price": 49
+    },
+    {
+      "name": "Appliance Interior",
+      "price": 39
+    },
+    {
+      "name": "Window Polish",
+      "price": 29
+    }
+  ]
+}

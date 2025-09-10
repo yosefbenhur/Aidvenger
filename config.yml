@@ -1,0 +1,93 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+local_backend: true
+
+collections:
+  - name: "missions"
+    label: "Missions"
+    format: "json"
+    editor:
+      preview: false
+    files:
+      - file: "src/data/missions.json"
+        label: "Missions Data"
+        name: "missions_list"
+        fields:
+          - label: Missions
+            name: missions
+            widget: list
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Status, name: status, widget: select, options: ["Incoming","In Progress","Completed"] }
+              - { label: Type, name: type, widget: string }
+              - { label: Location, name: location, widget: string }
+              - { label: Funding Goal, name: fundingGoal, widget: number }
+              - { label: Funded, name: funded, widget: number }
+              - { label: Sponsor ID, name: sponsorId, widget: number, required: false }
+              - { label: Gallery, name: gallery, widget: list, field: {label: Image, name: image, widget: image} }
+
+  - name: "sponsors"
+    label: "Sponsors"
+    format: "json"
+    editor: { preview: false }
+    files:
+      - file: "src/data/sponsors.json"
+        label: "Sponsors Data"
+        name: "sponsors_list"
+        fields:
+          - label: Sponsors
+            name: sponsors
+            widget: list
+            fields:
+              - { label: ID, name: id, widget: number }
+              - { label: Name, name: name, widget: string }
+              - { label: Logo, name: logo, widget: image }
+              - { label: URL, name: url, widget: string }
+              - { label: Tier, name: tier, widget: string }
+
+  - name: "pricing"
+    label: "Pricing"
+    format: "json"
+    editor: { preview: false }
+    files:
+      - file: "src/data/pricing.json"
+        label: "Pricing Data"
+        name: "pricing_data"
+        fields:
+          - { label: Packages, name: packages, widget: list, fields: [{label: Name, name: name, widget: string}, {label: Price, name: price, widget: number}, {label: Features, name: features, widget: list, field: {label: Feature, name: feature, widget: string}}, {label: Recommended, name: recommended, widget: boolean}] }
+          - { label: Add-ons, name: addons, widget: list, fields: [{label: Name, name: name, widget: string}, {label: Price, name: price, widget: number}] }
+
+  - name: "faqs"
+    label: "FAQs"
+    format: "json"
+    editor: { preview: false }
+    files:
+      - file: "src/data/faqs.json"
+        label: "FAQs Data"
+        name: "faqs_list"
+        fields:
+          - label: FAQs
+            name: faqs
+            widget: list
+            fields:
+              - { label: Question, name: question, widget: string }
+              - { label: Answer, name: answer, widget: text }
+
+  - name: "blog"
+    label: "League Log"
+    folder: "src/pages/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "astro"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }

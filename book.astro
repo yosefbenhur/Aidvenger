@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Book a Clean — Aidvenger" description="Deploy a hero team in minutes.">
+  <section class="section">
+    <div class="container">
+      <h1>Book a Clean</h1>
+      <p class="sub">Tell us about your space and urgency—then pick a time to talk.</p>
+      <div class="grid grid-2" style="margin-top:16px">
+        <div class="card" style="padding:16px">
+          <form name="book" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+            <input type="hidden" name="form-name" value="book"/>
+            <p class="visually-hidden"><label>Don’t fill this out: <input name="bot-field"/></label></p>
+            <p><label>Type of space<br/>
+              <select name="space" required style="width:100%; padding:10px; border-radius:8px">
+                <option>Home</option><option>Office</option><option>Event</option><option>Other</option>
+              </select></label></p>
+            <p><label>Approx. size (sq ft)<br/><input name="size" inputmode="numeric" style="width:100%; padding:10px; border-radius:8px"/></label></p>
+            <p><label>Urgency<br/>
+              <select name="urgency" required style="width:100%; padding:10px; border-radius:8px">
+                <option>Emergency (24h)</option><option>Soon (1–3 days)</option><option>Flexible</option>
+              </select></label></p>
+            <p><label>Photos (optional)<br/><input type="file" name="photos" accept="image/*" multiple/></label></p>
+            <p><label>Your Name<br/><input name="name" required style="width:100%; padding:10px; border-radius:8px"/></label></p>
+            <p><label>Email<br/><input type="email" name="email" required style="width:100%; padding:10px; border-radius:8px"/></label></p>
+            <p><label>Phone<br/><input name="phone" style="width:100%; padding:10px; border-radius:8px"/></label></p>
+            <p><label>Address<br/><input name="address" style="width:100%; padding:10px; border-radius:8px"/></label></p>
+            <p><label><input type="checkbox" name="sms_ok"/> SMS me updates</label></p>
+            <p><button class="btn btn-primary" type="submit">Deploy a Hero Team</button></p>
+          </form>
+        </div>
+        <div class="card" style="padding:16px">
+          <h2>Schedule a Call</h2>
+          <p>Prefer to talk? Pick a time below.</p>
+          <div style="min-height:600px">
+            <!-- Calendly embed placeholder -->
+            <iframe title="Calendly" style="width:100%; height:600px; border:0; border-radius:12px" loading="lazy"
+              src="https://calendly.com/your-calendly-username/15min?hide_event_type_details=1&hide_gdpr_banner=1"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

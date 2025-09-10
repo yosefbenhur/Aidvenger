@@ -1,0 +1,4 @@
+---
+const { source="Google", score="5.0" } = Astro.props;
+---
+<span class="badge" aria-label={`Rated ${score} on ${source}`}>⭐ {score} on {source}</span>

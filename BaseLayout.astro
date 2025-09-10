@@ -1,0 +1,45 @@
+---
+const { title = "Aidvenger", description = "Every Mess Needs a Hero.", ogImage = "/og-default.jpg" } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="preload" as="font" href="/fonts/LeagueSpartan.woff2" crossorigin />
+    <link rel="preload" as="font" href="/fonts/Inter.woff2" crossorigin />
+    <link rel="stylesheet" href="/src/styles/tokens.css" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    {/* Analytics toggles */}
+    {import.meta.env.PLAUSIBLE_DOMAIN && <script defer data-domain={import.meta.env.PLAUSIBLE_DOMAIN} src="https://plausible.io/js/plausible.js"></script>}
+    {import.meta.env.GA4_MEASUREMENT_ID && <script async src={"https://www.googletagmanager.com/gtag/js?id="+import.meta.env.GA4_MEASUREMENT_ID}></script>}
+    {import.meta.env.GA4_MEASUREMENT_ID && <script set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config','${import.meta.env.GA4_MEASUREMENT_ID}');`}></script>}
+  </head>
+  <body>
+    <header class="site">
+      <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;">
+        <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28"/><strong>Aidvenger</strong></a>
+        <nav aria-label="Primary">
+          <a href="/missions">Missions</a>
+          <a href="/sponsor">Sponsor</a>
+          <a href="/book" class="btn btn-primary" style="margin-left:16px;">Deploy a Hero Team</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <div class="container">
+        <p><strong>Aidvenger</strong> — Every Mess Needs a Hero.</p>
+        <p class="label">© {new Date().getFullYear()} Aidvenger • <a href="/legal/privacy">Privacy</a> • <a href="/legal/terms">Terms</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
